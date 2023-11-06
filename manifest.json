@@ -1,0 +1,42 @@
+{
+    "name": "Take screenshots",
+    "description": "Take screenshots",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_title": "Take a Screenshot"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "episyche.png",
+        "32": "episyche.png",
+        "48": "episyche.png",
+        "128": "episyche.png"
+    },
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "matches": [
+                "http://*/*",
+                "https://*/*",
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "host_permissions": [
+        "<all_urls>",
+        "*://*/*"
+    ],
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "tabCapture",
+        "scripting",
+        "downloads"
+    ]
+}
